@@ -11,12 +11,10 @@ from POM.TopMenuPage import TopMenuPage
 sys.path.append(os.path.join(os.path.dirname(__file__),"..",".."))
 import json
 from colorama import Fore, Back, Style
-import HtmlTestRunner
 from Utils import utils as utils
-
 from Utils.BaseClass import BaseClass
 
-@pytest.mark.usefixtures("test_setup")
+
 class TestRegisterUser(BaseClass):
 
     def test_RegisterUser(self):
@@ -27,5 +25,5 @@ class TestRegisterUser(BaseClass):
         driver.execute_script("window.scrollTo(0, 300)")
         time.sleep(3)
         rap = RegisterAccountPage(driver)
-        rap.completeMandatoryFields("Gonzalo", "Molina", "gonzalo.molina@darwoft.com", "Maestruli10")
+        rap.completeMandatoryFields("Jhon", "Bonjovi", "jhon.Bonjovi@darwoft.com", "Maestruli10", "156634631", "Maestruli10")
         time.sleep(3)

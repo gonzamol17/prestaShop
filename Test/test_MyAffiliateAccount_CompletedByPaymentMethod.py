@@ -13,12 +13,10 @@ from POM.TopMenuPage import TopMenuPage
 sys.path.append(os.path.join(os.path.dirname(__file__),"..",".."))
 import json
 from colorama import Fore, Back, Style
-import HtmlTestRunner
 from Utils import utils as utils
-
 from Utils.BaseClass import BaseClass
 
-@pytest.mark.usefixtures("test_setup")
+
 class TestMyAffiliateCompletedByPaymentMethod(BaseClass):
 
     def test_MyAffiliateAccount_CompletedByPaymentMethod(self):
@@ -34,13 +32,14 @@ class TestMyAffiliateCompletedByPaymentMethod(BaseClass):
         ap = AccountPage(driver)
         ap.selectAffiliateAccount()
         afap = AffiliateAccountPage(driver)
-        afap.complete1stMyAffiliateAccountForm("pepe company", "www.pepe.com.ar", "1200")
+        afap.complete1stMyAffiliateAccountForm("Sunday company", "www.sunday.com.ar", "1500")
         value = afap.selectPaymentMethodOption("bank")
         if value == "cheque":
             afap.complete2ndMyAffiliateAccountCheque("Gonzalo")
         elif value == "paypal":
-            afap.complete2ndMyAffiliateAccountPayel("pepe.bus@hotmail.com")
+            afap.complete2ndMyAffiliateAccountPayel("sunday.bus@hotmail.com")
         else:
-            afap.complete2ndMyAffiliateAccountBank("Santander", "capital", "1234", "Lorenzo", "Bermudez")
+            afap.complete2ndMyAffiliateAccountBank("Santander", "capital", "3336", "Sunday", "Lorenzo")
+        driver.execute_script("window.scrollTo(0, 400)")
         time.sleep(5)
         afap.selectBtnContinue()

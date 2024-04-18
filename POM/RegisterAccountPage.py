@@ -12,9 +12,9 @@ class RegisterAccountPageLocators:
     txtEmailBox = (By.ID, "input-email")
     txtTelephoneBox = (By.ID, "input-telephone")
     txtPasswordBox = (By.ID, "input-password")
-    #txtConfirmPassBox = (By.ID, "input-confirm")
-    checkboxPolicy = (By.CSS_SELECTOR, "#form-register>div>div>div>input")
-    btnContinue = (By.CSS_SELECTOR, "#form-register>div>div>button")
+    txtConfirmPassBox = (By.ID, "input-confirm")
+    checkboxPolicy = (By.XPATH, "//input[@name='agree']")
+    btnContinue = (By.XPATH, "//input[@value='Continue']")
 
 
 
@@ -24,7 +24,7 @@ class RegisterAccountPage:
         self.driver = driver
 
 
-    def completeMandatoryFields(self, name, last, email, password):
+    def completeMandatoryFields(self, name, last, email, password, telephone, repassword):
         #if gender.lower() == "mr":
         #    self.driver.find_element(*RegisterAccountPageLocators.radioButtonMr).click()
         #elif gender.lower() == "mrs":
@@ -32,9 +32,9 @@ class RegisterAccountPage:
         self.driver.find_element(*RegisterAccountPageLocators.txtFirstNameBox).send_keys(name)
         self.driver.find_element(*RegisterAccountPageLocators.txtLastNameBox).send_keys(last)
         self.driver.find_element(*RegisterAccountPageLocators.txtEmailBox).send_keys(email)
-        #self.driver.find_element(*RegisterAccountPageLocators.txtTelephoneBox).send_keys(telephone)
+        self.driver.find_element(*RegisterAccountPageLocators.txtTelephoneBox).send_keys(telephone)
         self.driver.find_element(*RegisterAccountPageLocators.txtPasswordBox).send_keys(password)
-        #self.driver.find_element(*RegisterAccountPageLocators.txtConfirmPassBox).send_keys(repassword)
+        self.driver.find_element(*RegisterAccountPageLocators.txtConfirmPassBox).send_keys(repassword)
         self.driver.find_element(*RegisterAccountPageLocators.checkboxPolicy).click()
         self.driver.find_element(*RegisterAccountPageLocators.btnContinue).click()
 

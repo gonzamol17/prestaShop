@@ -13,7 +13,8 @@ class AccountPageLocators:
     radioButtonNo = (By.CSS_SELECTOR, "input[type='radio'][value='0']")
     btnContinue = (By.CSS_SELECTOR, "#content div.pull-right>input")
     unsuscribeMessageNewsLetter = (By.CSS_SELECTOR, "#account-account>div.alert.alert-success.alert-dismissible")
-    affiliateAccountLink = (By.CSS_SELECTOR, "#content>ul:nth-child(6)>li>a")
+    #ffiliateAccountLink = (By.CSS_SELECTOR, "#content>ul:nth-child(6)>li>a")
+    affiliateAccountLink = (By.XPATH, "//a[contains(text(), 'Edit your affiliate')]")
 
 
 class AccountPage:
